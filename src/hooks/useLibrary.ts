@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import type { Shelf, Book, CurrentView, ViewMode, LibraryState } from '@/types'
+import type { Shelf, Book,ViewMode, LibraryState } from '@/types'
 import { mockShelves, mockBooks } from '@/data/mockData'
 
 const ITEMS_PER_PAGE = 12
@@ -30,10 +30,11 @@ export function useLibrary() {
     )
   }, [state.searchTerm])
 
-  const totalPages = useMemo(() => {
-    const items = state.currentView === 'shelves' ? filteredShelves : filteredBooks
-    return Math.ceil(items.length / ITEMS_PER_PAGE)
-  }, [state.currentView, filteredShelves.length, filteredBooks.length])
+const totalPages = useMemo(() => {
+  const items = state.currentView === 'shelves' ? filteredShelves : filteredBooks
+  return Math.ceil(items.length / ITEMS_PER_PAGE)
+}, [state.currentView, filteredShelves, filteredBooks])
+
 
   const getCurrentItems = () => {
     const items = state.currentView === 'shelves' ? filteredShelves : filteredBooks

@@ -3,7 +3,7 @@ import { BookCard } from '@/components/cards/BookCard'
 import { BookListItem } from '@/components/cards/BookListItem'
 import { Pagination } from '@/components/ui/Pagination'
 import { EmptyState } from '@/components/ui/EmptyState'
-import type { Book, ViewMode } from '@/types'
+import type { Book, ViewMode,Shelf } from '@/types'
 
 interface BooksViewProps {
   books: Book[]
@@ -11,14 +11,13 @@ interface BooksViewProps {
   currentPage: number
   totalPages: number
   viewMode: ViewMode
-  getCurrentItems: () => (Book | any)[]
+  getCurrentItems: () => Shelf[] | Book[]
   onBookClick: (book: Book) => void
   onSearchChange: (value: string) => void
   onPageChange: (page: number) => void
 }
 
 export function BooksView({
-  books,
   searchTerm,
   currentPage,
   totalPages,
@@ -29,6 +28,7 @@ export function BooksView({
   onPageChange,
 }: BooksViewProps) {
   const currentItems = getCurrentItems() as Book[]
+
 
   return (
     <div className="space-y-8">

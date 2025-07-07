@@ -1,5 +1,6 @@
 import { X, User, Calendar, DollarSign, Book as BookIcon, Star, Tag, Hash } from 'lucide-react'
 import type { Book } from '@/types'
+import Image from 'next/image'
 
 interface BookModalProps {
   book: Book | null
@@ -29,9 +30,11 @@ export function BookModal({ book, isOpen, onClose }: BookModalProps) {
             <div className="flex-shrink-0 mx-auto md:mx-0">
               <div className="w-48 h-64 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg overflow-hidden shadow-lg">
                 {book.cover ? (
-                  <img
+                  <Image
                     src={book.cover}
                     alt={book.title}
+                    width={200}
+                    height={300}
                     className="w-full h-full object-cover"
                   />
                 ) : (

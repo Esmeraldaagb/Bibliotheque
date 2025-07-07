@@ -2,21 +2,20 @@ import { SearchBar } from '@/components/ui/SearchBar'
 import { ShelfCard } from '@/components/cards/ShelfCard'
 import { Pagination } from '@/components/ui/Pagination'
 import { EmptyState } from '@/components/ui/EmptyState'
-import type { Shelf } from '@/types'
+import type { Shelf,Book } from '@/types'
 
 interface ShelvesViewProps {
   shelves: Shelf[]
   searchTerm: string
   currentPage: number
   totalPages: number
-  getCurrentItems: () => (Shelf | any)[]
+  getCurrentItems: () => Shelf[] | Book[]
   onShelfClick: (shelf: Shelf) => void
   onSearchChange: (value: string) => void
   onPageChange: (page: number) => void
 }
 
 export function ShelvesView({
-  shelves,
   searchTerm,
   currentPage,
   totalPages,
