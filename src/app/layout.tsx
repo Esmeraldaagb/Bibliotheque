@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Bibliothèque Glose - Interface Dynamique',
+  title: 'BiblioElectro',
   description: 'Interface moderne et dynamique pour explorer vos collections de livres',
   keywords: ['bibliothèque', 'livres', 'lecture', 'collection'],
   authors: [{ name: 'Glose' }],
